@@ -3,60 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <title>The Bini's | Binisha Acharya</title>
-<link rel="icon" type="image/png" href="favicon.png">
-  <!-- 🔹 Makes layout responsive on phones -->
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 🔹 Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* =============================
-       GLOBAL RESET & BASE STYLES
-       ============================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
+    #home,
+#about,
+#blog,
+#contact {
+  scroll-margin-top: 140px;  /* adjust if needed */
+}
+
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f1ee; /* light beige background */
+      background: #f5f1ee;
       color: #222;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    img { display: block; max-width: 100%; }
 
-    /* Wrapper for the whole content (except header) */
     .page {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 16px 50px 16px;
+      padding: 0 16px 50px;
     }
 
-    /* =============================
-       NAVBAR / HEADER
-       ============================= */
+    /* HEADER (default) */
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
       background: #ffffff;
       border-bottom: 1px solid #e1dedb;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
-    /* Main nav container */
     .nav {
       max-width: 1100px;
       margin: 0 auto;
@@ -67,14 +58,12 @@
       gap: 16px;
     }
 
-    /* Left side = logo / brand */
     .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    /* “The Bini’s” text logo */
     .nav-brand {
       font-family: "Great Vibes", cursive;
       font-size: 4rem;
@@ -82,15 +71,13 @@
       white-space: nowrap;
     }
 
-    /* Right side = menu links */
     .nav-links {
       display: flex;
       align-items: center;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
-    /* Individual menu button */
     .nav-links a {
       padding: 6px 14px;
       font-size: 0.9rem;
@@ -98,6 +85,7 @@
       background: #f5f5f5;
       border: 1px solid #dfdbd8;
       transition: 0.16s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -107,59 +95,35 @@
       box-shadow: 0 6px 14px rgba(179, 107, 118, 0.4);
     }
 
-    /* 🔹 Mobile nav layout */
-    @media (max-width: 700px) {
-      .nav {
-        flex-direction: column;          /* logo on top, menu under */
-        align-items: center;
-      }
-
-      .nav-brand {
-        font-size: 5rem;              /* slightly smaller logo on mobile */
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-    }
-
-    /* =============================
-       HERO SECTION (PHOTO + INTRO)
-       ============================= */
     .hero {
-      margin-top: 24px;
+      margin-top: 160px;
     }
 
-    /* Container that holds the picture + name overlay */
     .hero-media {
       position: relative;
-      background: #A97881;  /* dusty pink background behind photo */
+      background: #A97881;
       border-radius: 26px 26px 0 0;
       overflow: hidden;
     }
 
-    /* Wrapper just around the image */
     .hero-photo {
-      max-width: 420px;      /* limit width on big screens */
-      margin: 0 auto;        /* center the photo */
+      max-width: 420px;
+      margin: 0 auto;
     }
 
     .hero-photo img {
-      width: 100%;           /* fill the container */
+      width: 100%;
       height: auto;
       object-fit: contain;
     }
 
-
-    /* Card below the image with intro text */
     .hero-bottom {
       background: #ffffff;
-      padding: 26px 20px 28px 20px;
+      padding: 26px 20px 28px;
       border-radius: 0 0 30px 30px;
       box-shadow: 0 26px 60px rgba(0,0,0,0.18);
     }
 
-    /* Two-column layout inside hero-bottom */
     .hero-bottom-inner {
       display: grid;
       grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
@@ -168,7 +132,7 @@
 
     @media (max-width: 800px) {
       .hero-bottom-inner {
-        grid-template-columns: 1fr;  /* stack columns on mobile */
+        grid-template-columns: 1fr;
       }
     }
 
@@ -201,28 +165,9 @@
       padding: 12px 14px;
     }
 
-    /* 🔹 Make the picture bigger on mobile */
-    @media (max-width: 700px) {
-      .hero-photo {
-        max-width: 100%;      /* allow full width on small screens */
-      }
+    main { margin-top: 50px; }
 
-      .hero-name {
-        bottom: 18px;
-        font-size: 2rem;
-      }
-    }
-
-    /* =============================
-       GENERIC SECTION STYLES
-       ============================= */
-    main {
-      margin-top: 50px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
+    section { margin-bottom: 60px; }
 
     .section-label {
       font-size: 0.8rem;
@@ -246,12 +191,33 @@
       margin-bottom: 18px;
     }
 
-    /* Two-column card layout (About section) */
     .card-row {
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
       gap: 18px;
     }
+    .contact-card strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3b262a;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.contact-card a[href^="mailto"] {
+  display: inline-block;
+  font-weight: 500;
+  color: #8c525e;
+  margin-bottom: 14px;
+  text-decoration: underline;
+}
+
+.contact-card p {
+  line-height: 1.65;
+  margin-bottom: 12px;
+  color: #7c686a;
+}
+
 
     @media (max-width: 800px) {
       .card-row {
@@ -262,7 +228,7 @@
     .card {
       background: #ffffff;
       border-radius: 20px;
-      padding: 18px 18px 16px 18px;
+      padding: 18px 18px 16px;
       border: 1px solid #e2d2cd;
       box-shadow: 0 20px 40px rgba(0,0,0,0.06);
       font-size: 0.9rem;
@@ -286,9 +252,6 @@
       color: #7c686a;
     }
 
-    /* =============================
-       BLOG GRID
-       ============================= */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -310,7 +273,7 @@
     .post {
       background: #ffffff;
       border-radius: 18px;
-      padding: 14px 14px 12px 14px;
+      padding: 14px 14px 12px;
       border: 1px solid #e2d2cd;
       box-shadow: 0 18px 34px rgba(0,0,0,0.05);
       transition: 0.15s;
@@ -341,10 +304,6 @@
       line-height: 1.7;
     }
 
-    /* =============================
-       CONTACT SECTION
-       ============================= */
-    /* 2-column layout: left info, right form */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -355,7 +314,7 @@
 
     @media (max-width: 800px) {
       .contact-grid {
-        grid-template-columns: 1fr;  /* stack on small screens */
+        grid-template-columns: 1fr;
       }
     }
 
@@ -363,14 +322,13 @@
       background: #ffffff;
       border-radius: 20px;
       border: 1px solid #e2d2cd;
-      padding: 18px 18px 16px 18px;
+      padding: 18px 18px 16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.06);
       font-size: 0.9rem;
       color: #7c686a;
       line-height: 1.8;
     }
 
-    /* Contact form layout */
     form {
       margin-top: 8px;
       display: flex;
@@ -379,7 +337,6 @@
       font-size: 0.86rem;
     }
 
-    /* Each field row: label on top, input below */
     .contact-card form > div {
       display: flex;
       flex-direction: column;
@@ -407,11 +364,8 @@
       box-shadow: 0 0 0 2px rgba(179, 107, 118, 0.25);
     }
 
-    textarea {
-      min-height: 90px;
-    }
+    textarea { min-height: 90px; }
 
-    /* Send button */
     .btn {
       align-self: flex-start;
       margin-top: 4px;
@@ -432,9 +386,6 @@
       box-shadow: 0 18px 42px rgba(179, 107, 118, 0.7);
     }
 
-    /* =============================
-       FOOTER
-       ============================= */
     footer {
       margin-top: 20px;
       padding-top: 10px;
@@ -446,55 +397,69 @@
       flex-wrap: wrap;
       gap: 6px;
     }
-    /* ====== MOBILE FIX: make site fit perfectly on phones ====== */
-@media (max-width: 600px) {
 
-  /* Let the page use full width on phone */
+    /* ========= MOBILE (nav stays in one line) ========= */
+@media (max-width: 700px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
   .page {
     max-width: 100%;
     padding: 0 10px 40px;
   }
 
-  /* Fix the big "The Bini's" text so it doesn't stretch the page */
-  .nav-brand {
-    font-size: 2.4rem;     /* smaller on mobile */
-    white-space: normal;   /* allow it to wrap if needed */
-    text-align: center;
-  }
-
-  /* Stack logo + buttons nicely */
+  /* STACK HEADER ON MOBILE */
   .nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    padding: 8px 10px;
+    flex-direction: column;      /* logo on top, links below */
+    align-items: flex-start;     /* left side */
+    gap: 4px;
   }
 
-  /* Prevent any sideways scroll */
-  html, body {
-    overflow-x: hidden;
+ 
+  .nav-brand {
+    font-size: 3.2rem;
   }
 
-  /* Make sure the hero image can use full width */
-  .hero-photo {
-    max-width: 100%;
-    margin: 0 auto;
+  /* NAV BUTTONS – MOBILE */
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;          /* allows a 2nd row if needed */
+    justify-content: center;  /* centered under The Bini's */
+    gap: 6px;
+  }
+
+  .nav-links a {
+    flex: 0 1 auto;           /* no forced equal width */
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 20px;
   }
 }
 
+  .hero {
+    margin-top: 140px;          /* push content down a bit under fixed header */
+  }
+   
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
   </style>
 </head>
 
 <body>
-  <!-- =========================
-       NAVBAR
-       ========================= -->
   <header>
     <div class="nav">
       <div class="nav-left">
         <div class="nav-brand">The Bini's</div>
       </div>
 
-      <!-- Right side: navigation links -->
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About me</a>
@@ -505,22 +470,13 @@
   </header>
 
   <div class="page">
-    <!-- =========================
-         HERO SECTION
-         ========================= -->
     <section id="home" class="hero">
-      <!-- Pink background + photo + overlay name -->
       <div class="hero-media">
         <div class="hero-photo">
-          <!-- 🔻 Change ONLY the src to your image file name or URL -->
-          <img
-            src="binisha pic.jpg"
-            alt="Binisha on stage"
-          />
+          <img src="binisha pic.jpg" alt="Binisha on stage" />
         </div>
       </div>
 
-      <!-- Card below the image with intro text -->
       <div class="hero-bottom">
         <div class="hero-bottom-inner">
           <div>
@@ -542,9 +498,6 @@
     </section>
 
     <main>
-      <!-- =========================
-           ABOUT SECTION
-           ========================= -->
       <section id="about">
         <div class="section-label">About me</div>
         <h2 class="section-title">More than just one label.</h2>
@@ -586,9 +539,6 @@
         </div>
       </section>
 
-      <!-- =========================
-           BLOG SECTION
-           ========================= -->
       <section id="blog">
         <div class="section-label">Blog</div>
         <h2 class="section-title">Future posts from The Bini's.</h2>
@@ -627,9 +577,6 @@
         </div>
       </section>
 
-      <!-- =========================
-           CONTACT SECTION
-           ========================= -->
       <section id="contact">
         <div class="section-label">Contact</div>
         <h2 class="section-title">Say hi to The Bini's.</h2>
@@ -639,36 +586,27 @@
         </p>
 
         <div class="contact-grid">
-          <!-- LEFT CARD: email + social -->
           <div class="contact-card">
-            <strong>Email:</strong><br/>
-            <a href="mailto:binishaacharya602@gmail.com">binishaacharya602@gmail.com</a>
+            <strong>Email:</strong>
+<a href="mailto:binishaacharya602@gmail.com">binishaacharya602@gmail.com</a>
 
-            <p style="margin-top:8px;">
-              You can also connect with me on social media.
-            </p>
+<p>You can also connect with me on social media.</p>
 
-            <p style="margin-top:10px; font-size:0.85rem; color:#7c686a;">
-              Instagram and TikTok are currently inactive.<br/>
-              You can still contact me on WhatsApp or email.
-            </p>
+<p>My Instagram, TikTok and Facebook are currently inactive,  
+but you can still reach me through WhatsApp or email.</p>
 
             <div class="pill-row" style="margin-top:10px;">
               <a class="pill" href="https://instagram.com/thebinishae" target="_blank">Instagram</a>
               <a class="pill" href="https://www.tiktok.com/@binishaa_2" target="_blank">TikTok</a>
+              <a class="pill" href="https://facebook.com/binisha101" target="_blank">Facebook</a>
               <a class="pill" href="https://wa.me/9842564406" target="_blank">WhatsApp</a>
             </div>
           </div>
 
-          <!-- RIGHT CARD: contact form -->
           <div class="contact-card">
             <strong>Send me a message</strong>
-
-            <!-- 🔹 FormSubmit setup -->
             <form action="https://formsubmit.co/binishaacharya602@gmail.com" method="POST">
-              <!-- Disable captcha -->
               <input type="hidden" name="_captcha" value="false">
-              <!-- Redirect after submit (change if you want) -->
               <input type="hidden" name="_next" value="https://binishaacharya-droid.github.io/">
 
               <div>
@@ -683,12 +621,7 @@
 
               <div>
                 <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Type something..."
-                  required
-                ></textarea>
+                <textarea id="message" name="message" placeholder="Type something..." required></textarea>
               </div>
 
               <button type="submit" class="btn">Send</button>
@@ -698,12 +631,9 @@
       </section>
     </main>
 
-    <!-- =========================
-         FOOTER
-         ========================= -->
     <footer>
       <span>© 2025 The Bini's — Binisha Acharya.</span>
-      <span>Designed by Binisha Acharya • Hosted on GitHub Pages</span>
+      <span>Designed by Binisha Acharya • Hosted on GitHub via Cloudflare</span>
     </footer>
   </div>
 </body>
